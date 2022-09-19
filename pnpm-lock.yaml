@@ -1,8 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
+  solid-js: ^1.5.5
   typescript: ^4.6.4
   vite: ^3.1.0
+
+dependencies:
+  solid-js: 1.5.5
 
 devDependencies:
   typescript: 4.8.3
@@ -18,6 +22,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /csstype/3.1.1:
+    resolution: {integrity: sha512-DJR/VvkAvSZW9bTouZue2sSxDwdTN92uHjqeKVm+0dAqdfNykRzQ95tay8aXMBAAPpUiq4Qcug2L7neoRh2Egw==}
+    dev: false
 
   /esbuild-android-64/0.15.7:
     resolution: {integrity: sha512-p7rCvdsldhxQr3YHxptf1Jcd86dlhvc3EQmQJaZzzuAxefO9PvcI0GLOa5nCWem1AJ8iMRu9w0r5TG8pHmbi9w==}
@@ -292,6 +300,12 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /solid-js/1.5.5:
+    resolution: {integrity: sha512-5gXszD7ekhe59IyMa3+AvREJnBWVjwaeC7afL8C3UNPj5gQQCrsMs/cXwI3JRpj6D+3TESTyuQ2sY++m4cYiTg==}
+    dependencies:
+      csstype: 3.1.1
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
