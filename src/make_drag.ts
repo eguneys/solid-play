@@ -40,8 +40,11 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
       }
 
       _cancel_raf = loop((dt: number, dt0: number) => {
-        if (_drag.m || _drag.e.distance(_m) > 3) { _drag.m = _m }
-        on_drag?.(_drag)
+        let _drag_m0 = _drag.m
+        if (_drag.m || _drag.e.distance(_m) > 3) { _drag.m = _m; }
+
+        let _start = !_drag_m0 && !!_drag.m
+        on_drag?.(_drag, _start)
       })
     },
     _onDragMove(e) { 

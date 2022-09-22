@@ -31,16 +31,17 @@ export class Mouse {
     $_.addEventListener('wheel', onWheel)
 
     $_.addEventListener('mousedown', dragStart) 
-    $_.addEventListener('mousemove', dragMove)
     $_.addEventListener('contextmenu', contextMenu)
 
+    document.addEventListener('mousemove', dragMove)
     document.addEventListener('mouseup', dragEnd)
 
     return () => {
       $_.removeEventListener('wheel', onWheel) 
       $_.removeEventListener('mousedown', dragStart)
-      $_.removeEventListener('mousemove', dragMove)
       $_.removeEventListener('contextmenu', contextMenu)
+
+      document.removeEventListener('mousemove', dragMove)
       document.removeEventListener('mouseup', dragEnd)
     }
   }
