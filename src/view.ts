@@ -18,3 +18,5 @@ export const onScrollHandlers = (ctrl) => {
 
   onCleanup(() => unbinds.forEach(_ => _()));
 }
+
+export const set_$ref = ref => _ => setTimeout(() => ref.$ref = _)

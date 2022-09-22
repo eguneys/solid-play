@@ -1,0 +1,21 @@
+.solid-play {
+  display: flex;
+  flex-flow: row;
+}
+
+.drag-me {
+  flex: 3 0 0;
+  user-select: none;
+  cursor: pointer;
+  aspect-ratio: 1/1;
+  background: pink;
+}
+.c-wrap {
+  flex: 2 0 0;
+}
+
+
+.drop-area {
+  background: purple;
+  aspect-ratio: 2/1;
+}
