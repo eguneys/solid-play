@@ -52,6 +52,10 @@ export class Vec2 {
     return Math.atan2(this.y, this.x)
   }
 
+  get round(): Vec2 {
+    return Vec2.make(Math.round(this.x), Math.round(this.y))
+  }
+
   constructor(x: number, y: number) {
     this.x = x
     this.y = y
