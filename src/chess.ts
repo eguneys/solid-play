@@ -20,6 +20,11 @@ export const long_role = role_long
 export const pieces = colors.flatMap(c => roles.map(r => c + r))
 export const poss = files.flatMap(f => ranks.map(r => f + r))
 
+export const vec2_poss = (v) => {
+  let f = files[v.x],
+    r = ranks[v.y]
+  return f+r
+}
 
 export const poss_vec2 = new Map(poss.map(_ => {
   let [file, rank] = _.split('')

@@ -56,6 +56,10 @@ export class Vec2 {
     return Vec2.make(Math.round(this.x), Math.round(this.y))
   }
 
+  get floor(): Vec2 {
+    return Vec2.make(Math.floor(this.x), Math.floor(this.y))
+  }
+
   constructor(x: number, y: number) {
     this.x = x
     this.y = y

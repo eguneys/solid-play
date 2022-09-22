@@ -60,9 +60,10 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
       if (!_drag.m) {
         on_click?.(_drag.e) 
       }
-      on_up?.(_drag.e)
+      on_up?.(_drag.m || _drag.e)
       _cancel_raf?.() 
       _cancel_raf = undefined
+      _drag = undefined
     }
   }, $_)
 }
