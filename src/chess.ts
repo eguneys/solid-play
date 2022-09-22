@@ -14,6 +14,8 @@ export const roles = 'rkqbnp'.split('')
 
 export const role_long = { r: 'rook', k: 'king', q: 'queen', b: 'bishop', n: 'knight', p: 'pawn' }
 export const color_long = { w: 'white', b: 'black' }
+export const long_color = color_long
+export const long_role = role_long
 
 export const pieces = colors.flatMap(c => roles.map(r => c + r))
 export const poss = files.flatMap(f => ranks.map(r => f + r))

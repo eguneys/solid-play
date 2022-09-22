@@ -4,6 +4,8 @@
 }
 
 .drag-me {
+  display: flex;
+  flex-flow: row;
   flex: 3 0 0;
   user-select: none;
   cursor: pointer;
