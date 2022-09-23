@@ -17,7 +17,7 @@ export class Mouse {
 
     let { _onDragStart, _onDragMove, _onDragEnd, _onContextMenu, _onWheel } = hs
 
-    const dragStart = e => { _onDragStart?.(ep(e)) }
+    const dragStart = e => { _onDragStart?.(ep(e), e.buttons === 2 || e.button === 2) }
     const dragMove = e => { _onDragMove?.(ep(e)) }
     const dragEnd = e => { _onDragEnd?.(ep(e)) }
     const contextMenu = e => { 

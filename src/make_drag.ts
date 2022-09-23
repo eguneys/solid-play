@@ -23,8 +23,13 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
   } = hooks
 
   let _drag
+  let _drag0
   let _m
   let _cancel_raf
+
+  const clone_drag = (_) => {
+    return _ && { ..._ }
+  }
 
   return Mouse.init({
     ...(on_context ?  {
@@ -32,19 +37,20 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
         on_context()
       }
     }: {}),
-    _onDragStart(e) {
+    _onDragStart(e, _right) {
 
-      _drag = { e }
+      _drag0 = clone_drag(_drag)
+      _drag = { e, _right }
       if (_cancel_raf) {
         _cancel_raf?.() 
       }
 
       _cancel_raf = loop((dt: number, dt0: number) => {
-        let _drag_m0 = _drag.m
         if (_drag.m || _drag.e.distance(_m) > 3) { _drag.m = _m; }
 
-        let _start = !_drag_m0 && !!_drag.m
-        on_drag?.(_drag, _start)
+        on_drag?.(_drag, _drag0)
+
+        _drag0 = clone_drag(_drag)
       })
     },
     _onDragMove(e) { 
@@ -58,9 +64,9 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
         return
       }
       if (!_drag.m) {
-        on_click?.(_drag.e) 
+        on_click?.(_drag.e, _drag._right) 
       }
-      on_up?.(_drag.m || _drag.e)
+      on_up?.(_drag.m || _drag.e, _drag._right)
       _cancel_raf?.() 
       _cancel_raf = undefined
       _drag = undefined

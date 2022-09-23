@@ -23,7 +23,7 @@ export const poss = files.flatMap(f => ranks.map(r => f + r))
 export const vec2_poss = (v) => {
   let f = files[v.x],
     r = ranks[v.y]
-  return f+r
+  return f && r && f+r
 }
 
 export const poss_vec2 = new Map(poss.map(_ => {
