@@ -30,19 +30,31 @@ export class Mouse {
 
     $_.addEventListener('wheel', onWheel)
 
-    $_.addEventListener('mousedown', dragStart) 
+    $_.addEventListener('touchstart', dragStart, { passive: false }) 
+    $_.addEventListener('mousedown', dragStart, { passive: false }) 
     $_.addEventListener('contextmenu', contextMenu)
 
     document.addEventListener('mousemove', dragMove)
     document.addEventListener('mouseup', dragEnd)
 
+    document.addEventListener('touchmove', dragMove)
+    document.addEventListener('touchend', dragEnd)
+
     return () => {
       $_.removeEventListener('wheel', onWheel) 
+
+
+      $_.removeEventListener('touchstart', dragStart)
       $_.removeEventListener('mousedown', dragStart)
+
+
       $_.removeEventListener('contextmenu', contextMenu)
 
       document.removeEventListener('mousemove', dragMove)
       document.removeEventListener('mouseup', dragEnd)
+
+      document.removeEventListener('touchmove', dragMove)
+      document.removeEventListener('touchend', dragEnd)
     }
   }
 }
