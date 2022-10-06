@@ -1,15 +1,15 @@
 import { on, onCleanup, createSignal, createMemo, createEffect } from 'solid-js'
 import { set_$ref } from './view'
-import { make_ref } from './make_ref'
+import { Ref } from './ref'
 import { Mouse } from './mouse'
-import { make_drag, make_drag_ref } from './make_drag'
+import { make_drag_from_ref, Hooks } from './drag'
 
 const App = () => {
 
-  let drag_ref = make_ref(),
-    drop_ref = make_ref()
+  let drag_ref = Ref.make,
+    drop_ref = Ref.make 
 
-  let hooks = {
+  let hooks: Hooks = {
      on_context() {
        console.log('here')
      },
@@ -27,7 +27,7 @@ const App = () => {
      }
    }
 
-  make_drag_ref(hooks, drag_ref)
+  make_drag_from_ref(hooks, drag_ref)
 
 /*
   createEffect(on(() => drag_ref.$ref, ($_) => {
