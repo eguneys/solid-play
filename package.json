@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite --port=3000",
-    "build": "vite build && tsc --emitDeclarationOnly && mv dist/src dist/types",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "lint": "tsc --noEmit --watch"
   },
   "devDependencies": {

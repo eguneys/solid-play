@@ -13,11 +13,11 @@ export type DragEvent = {
 }
 
 export type Hooks = {
-  on_hover: (e: EventPosition) => void,
-  on_up: (e: EventPosition, right: boolean) => void,
-  on_click: (e: EventPosition, right: boolean) => void,
-  on_drag: (d: DragEvent, d0?: DragEvent) => void,
-  on_context: () => void
+  on_hover?: (e: EventPosition) => void,
+  on_up?: (e: EventPosition, right: boolean) => void,
+  on_click?: (e: EventPosition, right: boolean) => void,
+  on_drag?: (d: DragEvent, d0?: DragEvent) => void,
+  on_context?: () => void
 }
 
 
@@ -52,7 +52,7 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
   return Mouse.init({
     ...(on_context ?  {
       _onContextMenu() {
-        on_context()
+        on_context?.()
       }
     }: {}),
     _onDragStart(e, _right) {
