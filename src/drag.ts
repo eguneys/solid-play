@@ -1,6 +1,6 @@
 import { on, onCleanup, createEffect } from 'solid-js'
 import { Mouse } from './mouse'
-import { loop } from './play'
+import { loop } from './loop'
 import { Vec2 } from './vec2'
 import { Ref } from './ref'
 
@@ -16,7 +16,7 @@ export type Hooks = {
   on_hover: (e: EventPosition) => void,
   on_up: (e: EventPosition, right: boolean) => void,
   on_click: (e: EventPosition, right: boolean) => void,
-  on_drag: (d: DragEvent, d0: DragEvent) => void,
+  on_drag: (d: DragEvent, d0?: DragEvent) => void,
   on_context: () => void
 }
 
@@ -62,9 +62,8 @@ export const make_drag = (hooks: Hooks, $_: HTMLElement) => {
       if (_cancel_raf) {
         _cancel_raf?.() 
       }
-
-      _cancel_raf = loop((dt: number, dt0: number) => {
-        if (_drag && _drag0) {
+      _cancel_raf = loop((dt: number) => {
+        if (_drag) {
           if (_drag.m || (_m && _drag.e.distance(_m) > 3)) { _drag.m = _m; }
           on_drag?.(_drag, _drag0)
           _drag0 = clone_drag(_drag)

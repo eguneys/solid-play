@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "exports": "./dist/solid-play.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite --port=3000",
-    "build": "vite build",
+    "build": "vite build && tsc --emitDeclarationOnly && mv dist/src dist/types",
     "lint": "tsc --noEmit --watch"
   },
   "devDependencies": {

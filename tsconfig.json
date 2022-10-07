@@ -10,12 +10,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": true,
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["solid-js"]
+    "types": ["solid-js"],
+    "outDir": "dist",
+    "declaration": true
   },
   "include": ["src"]
 }

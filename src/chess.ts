@@ -1,5 +1,7 @@
 import { Vec2 } from './vec2'
 
+export type Color = string
+export type Pos = string
 
 export const initial_fen = `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`
 
@@ -20,7 +22,7 @@ export const long_role = role_long
 export const pieces = colors.flatMap(c => roles.map(r => c + r))
 export const poss = files.flatMap(f => ranks.map(r => f + r))
 
-export const vec2_poss = (v) => {
+export const vec2_poss = (v: Vec2) => {
   let f = files[v.x],
     r = ranks[v.y]
   return f && r && f+r
@@ -35,11 +37,11 @@ export const poss_vec2 = new Map(poss.map(_ => {
 
 
 
-export const dark_pos = (pos) => { 
-  let _ = poss_vec2.get(pos)
+export const dark_pos = (pos: Pos) => { 
+  let _ = poss_vec2.get(pos)!
   return (_.x + _.y) % 2 === 0
 }
-export const light_pos = _ => !dark_pos(_)
+export const light_pos = (_: Pos) => !dark_pos(_)
 
 export const dark_poss = poss.filter(dark_pos)
 export const light_poss = poss.filter(light_pos)

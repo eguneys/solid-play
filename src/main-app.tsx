@@ -14,7 +14,7 @@ const App = () => {
        console.log('here')
      },
      on_hover(e) {
-       console.log(drag_ref.get_normal_at_abs_pos(e))
+      // console.log(drag_ref.get_normal_at_abs_pos(e))
      },
      on_drag(e) {
        console.log('drag', e)
