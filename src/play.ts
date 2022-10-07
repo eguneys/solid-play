@@ -2,6 +2,9 @@ import { Signal, Setter } from 'solid-js'
 
 
 
+export const write = <A>(_: Signal<A>, _f: (_: A) => void) => {
+  _[1](_ => { _f(_); return _ })
+}
 
 
 export const read = <A>(_: Signal<A>): A => {
