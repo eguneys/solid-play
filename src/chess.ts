@@ -1,6 +1,7 @@
 import { Vec2 } from './vec2'
 
-export type Color = string
+export type Role = 'r' | 'k' | 'q' | 'b' | 'n' | 'p'
+export type Color = 'w' | 'b'
 export type Pos = string
 
 export const initial_fen = `rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1`

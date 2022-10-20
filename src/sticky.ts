@@ -2,7 +2,7 @@ import { Vec2 } from './vec2'
 
 export class Sticky<Item> {
 
-  static make = (free: Array<Vec2>) => { return new Sticky(free) }
+  static make = <A>(free: Array<Vec2>) => { return new Sticky<A>(free) }
 
   released_positions: Map<Item, Array<Vec2>>
 
@@ -14,7 +14,7 @@ export class Sticky<Item> {
     let _ = this.released_positions.get(item)
     if (!instant_track && _ && _.length > 0) {
       _.sort((a, b) => b.distance(v) - a.distance(v))
-      return _.pop()
+      return _.pop()!
     } else {
       let res = this.free.pop()!
       res.x = v.x
