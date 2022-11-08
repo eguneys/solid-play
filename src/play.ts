@@ -1,6 +1,8 @@
-import { Signal, Setter } from 'solid-js'
+import { ResourceReturn, Signal, Setter } from 'solid-js'
 
-
+export function mread<A>(resource: ResourceReturn<A>): A | undefined {
+    return resource[0]()
+}
 
 export const write = <A>(_: Signal<A>, _f: (_: A) => void) => {
   _[1](_ => { _f(_); return _ })

@@ -45,6 +45,10 @@ export class Ref {
     return this.m_rect()
   }
 
+  $clear_bounds() {
+    owrite(this._$clear_bounds, undefined)
+  }
+
   m_rect: Memo<DOMRect | undefined>;
   _$ref: Signal<HTMLElement | undefined>;
   _$clear_bounds: Signal<undefined>
