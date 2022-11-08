@@ -44,9 +44,14 @@ export class Mouse {
         _onContextMenu() 
       }
     }
-    const onWheel = (e: Event) => { _onWheel?.(Math.sign((e as WheelEvent).deltaY)) }
+    const onWheel = (e: Event) => { 
+      if (_onWheel) {
+        _onWheel(Math.sign((e as WheelEvent).deltaY)) 
+        e.preventDefault()
+      }
+    }
 
-    $_.addEventListener('wheel', onWheel)
+    $_.addEventListener('wheel', onWheel, { passive: false })
 
     $_.addEventListener('touchstart', dragStart, { passive: false }) 
     $_.addEventListener('mousedown', dragStart, { passive: false }) 

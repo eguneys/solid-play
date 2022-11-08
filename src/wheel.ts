@@ -23,5 +23,5 @@ export const make_wheel = (hooks: WHooks, $_: HTMLElement) => {
  
   return Mouse.init({
     _onWheel(_) { on_wheel(_) }
-  })
+  }, $_)
 }
