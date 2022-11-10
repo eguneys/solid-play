@@ -53,8 +53,8 @@ export class Mouse {
 
     $_.addEventListener('wheel', onWheel, { passive: false })
 
-    $_.addEventListener('touchstart', dragStart, { passive: false }) 
-    $_.addEventListener('mousedown', dragStart, { passive: false }) 
+    $_.addEventListener('touchstart', dragStart, { capture: true, passive: false }) 
+    $_.addEventListener('mousedown', dragStart, { capture: true, passive: false }) 
     $_.addEventListener('contextmenu', contextMenu)
 
     document.addEventListener('mousemove', dragMove)
