@@ -1,6 +1,6 @@
 import { Vec2 } from './vec2'
 
-export type Role = 'r' | 'k' | 'q' | 'b' | 'n' | 'p'
+export type Role = 'r' | 'k' | 'q' | 'b' | 'n' | 'p' | 'd'
 export type Color = 'w' | 'b'
 export type Pos = string
 
